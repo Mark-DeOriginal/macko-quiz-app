@@ -1,0 +1,453 @@
+* {  
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: 0.3s;
+    color: rgb(33 23 80 / 90%);
+}
+
+body {
+    background-color: #0d0b4e;
+}
+
+/*Let's style and add a background to our Quiz App*/
+.quiz-app {
+    background-image: url("bg.png");
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    overflow: auto;
+    opacity: 0;
+    display: none;
+}
+
+/*Let's an inner padding to our Quiz App*/
+.quiz-container {
+    padding: 10px;
+    padding-top: 20px;    
+}
+
+/*Let's style our Quiz Content Container*/
+.main-quiz {    
+    margin: auto;
+    max-width: 500px;
+    min-height: 510px;
+    border-radius: 20px;
+    padding: 0px 25px;
+    padding-top: 26px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 1px 7px 3px rgb(0 0 0 / 69%);
+    background: rgba(196, 186, 253, 0.473);
+}
+
+/*Let's style our App Header*/
+.app-header {
+    border-bottom: 1px solid rgb(33 23 80 / 90%);
+    padding-bottom: 10px;
+    contain: content;
+    display: flex;
+    height: 46px;
+}
+/*Our About button and Timer container*/
+.about-Timer {
+    flex: 45%;
+}
+.aboutTimerContent {
+    position: relative;
+    right: -86px;
+}
+.app-name {
+    flex: 55%;
+}
+/*Let's style our Quiz Timer*/
+.quiz-Timer {
+    font-size: 1.3rem;
+    float: right;
+    position: relative;
+    top: 8px;
+    margin-left: 10px;
+}
+
+/*Let's style our App body*/
+.app-body {
+    padding-top: 30px;
+    font-size: 1.4rem;
+    padding-bottom: 31px;
+}
+/*Let's add a margin top style to paragraph elements in the app body container*/
+.app-body p {
+    margin-top: 15px;
+}
+
+/*Including the ul elements inside*/
+ul {
+    font-size: 1.2rem;
+    list-style-type: disc;
+    color: rgb(33 23 80 / 90%);
+    
+}
+
+/*Let these be our default style for all our button elements*/
+button {
+    border: none;
+    padding: 5px;
+    background-color: rgb(33 23 80 / 90%);
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    width: 150px;
+    cursor: pointer;
+    border: 2px solid rgb(33 23 80 / 90%);
+    margin-top: 10px;
+    user-select: none;
+    -moz-user-select: none;
+}
+button:hover {
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(33 23 80 / 90%);
+}
+button:active {
+    transform: scale(0.9);
+    transition-duration: 0.1s;
+}
+
+/*Let's style our Quiz About button*/
+.aboutBtn {
+    border: none;
+    position: relative;
+    top: -5px;
+    color: white;
+    width: 80px;
+    float: right;
+}
+.aboutBtn:hover {
+    background-color: rgb(33 23 80 / 72%);
+    color: white;
+}
+
+/*Let's hide our quiz page first so
+we can work on the quiz page*/
+.quiz {
+    display: none;
+    opacity: 0;
+    transform: translateX(-25px);
+}
+
+/*Let's style our Quiz options*/
+.option, .option2 {
+    padding: 5px;
+    margin-bottom: 8px;
+    border-radius: 15px;
+    padding-left: 15px;
+    box-shadow: 0px 1px 2px 0px rgb(0 0 0 / 69%);
+    font-size: 1.2rem;
+    user-select: none;
+    -moz-user-select: none;
+}
+.option:hover {
+    cursor: pointer;
+    background-color: rgb(122 111 174 / 22%);
+}
+/*Use this style for our disabled Option buttons*/
+.option:hover:disabled, .option:disabled {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/*Let's style our Quiz Correction Page elements*/
+.quizCorrection {
+    display: none;
+    opacity: 0;
+    transform: translateX(-25px);
+}
+
+/*This class will be used to highlight a selected answer option*/
+.selectedAnswer {
+    padding-left: 25px !important;
+    background-color: rgb(32 36 100 / 22%) !important;
+}
+/*This class will be used to highlight the correct answer*/
+.correctAnswer {
+    background-color: #15ff0054;
+}
+.wrongAnswer {
+    background-color:#ff000054;
+}
+
+/*Let's style our Quiz control buttons*/
+.endQuiz {
+    float: right;
+    width: 30px;
+    padding: 1px;
+    padding-bottom: 5px;
+    border-radius: 25px;
+    background-color: rgb(33 23 80 / 90%);
+    color:white;
+    text-align: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
+}
+.endQuiz:hover {
+    background-color: rgb(33 23 80 / 72%);
+}
+.endQuiz:active {
+    transform: scale(0.9);
+}
+
+.submitBtn, .resultBtn {
+    float: right;
+    padding: 3px;
+    background-color: rgb(33 23 80 / 90%);
+    border-color: rgb(33 23 80 / 78%);
+}
+.submitBtn:hover, .resultBtn:hover {
+    color: rgb(33 23 80 / 78%);
+}
+
+.controls {
+    width: 120px;
+}
+.previousBtn, .nextBtn, .previousBtn2, .nextBtn2 {
+    box-shadow: 0px 1px 2px 0px rgb(0 0 0 / 69%);
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: rgb(33 23 80 / 90%);    
+    font-weight: bold;
+}
+
+.previousBtn:hover, .nextBtn:hover, .previousBtn2:hover, .nextBtn2:hover{
+    background-color: rgb(122 111 174 / 22%);
+}
+.previousBtn:active, .nextBtn:active, .previousBtn2:active, .nextBtn2:active {
+    background-color: rgb(32 36 100 / 22%);
+}
+
+/*Use this style for our disabled buttons*/
+button:hover:disabled, button:disabled {
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(89 78 141 / 57%);
+}
+
+/*Change the color of the arrow when the button is disabled*/
+button:disabled .arrow {
+    border-color: rgb(89 78 141 / 57%);
+}
+
+/*Let's style our Quiz progress guage*/
+.quiz-progress, .quiz-progress2{
+    box-shadow: 0px 1px 2px 0px rgb(0 0 0 / 69%);
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 30px;
+    contain: content;
+    margin-top: 40px;
+    margin-bottom: 10px;    
+}
+.progress, .progress2 {
+    width: 0;
+    background-color: rgb(89 78 141 / 57%);
+    text-align: center;
+    font-size: 1rem;
+}
+.percentComplete, .percentComplete2 {
+    padding-left: 8px;
+    user-select: none;
+}
+
+.quiz-result {
+    display: none;
+    opacity: 0;
+    transform: translateX(-25px);
+}
+.quiz-result table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 1.3rem;
+    box-shadow: inset 0px 0.5px 3px 1px rgb(0 0 0 / 72%);
+    border-radius: 10px;
+    contain: content;
+}
+td {
+    padding: 5px;
+    padding-left: 15px;
+}
+tr {
+    border-bottom: 1px solid #d0c6e8bd;
+    background-color: rgb(50 34 129 / 22%);
+    cursor: pointer;    
+}
+tr:hover {
+    background-color: rgb(92 81 147 / 9%);
+    transition: 0.8s;
+}
+/*Remove the table's last child bottom border*/
+tr:last-child {
+    border-bottom: none;
+}
+/*Make the table's 2nd child 
+(which holds the Correct Answer row) 
+background color: light-green*/
+tr:nth-child(2):hover {
+    background-color: rgb(33 155 28 / 25%);
+}
+/*Make the table's 3rd child 
+(which holds the Wrong Answer row) 
+background color: light-red*/
+tr:nth-child(3):hover {
+    background-color: rgb(155 22 22 / 25%);
+}
+
+/*Let's style our Quiz Result Page buttons*/
+.quizCorrectionsBtn, .goToHomeBtn {
+    box-shadow: 0px 1px 2px 0px rgb(0 0 0 / 69%);
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: rgb(33 23 80 / 90%);    
+    font-weight: bold;
+    width: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 20px;
+}
+/*Float our Home button to the right*/
+.goToHomeBtn {
+    float: right;
+}
+/*Give the buttons this style when hovered on*/
+.quizCorrectionsBtn:hover, .goToHomeBtn:hover{
+    background-color: rgb(122 111 174 / 22%);
+}
+/*Give the buttons this style when clicked on*/
+.quizCorrectionsBtn:active, .goToHomeBtn:active{
+    background-color: rgb(32 36 100 / 22%);
+}
+
+/*This classes will be used to fade in or fade out our Pages*/
+.slide-fadeOut {
+    transform: translateX(25px);
+    opacity: 0;
+}
+.slide-fadeIn {
+    transform: translateX(0px);
+    opacity: 1;
+}
+
+/*Let's style our Modal Background*/
+.modalBg {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.651);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    display: none;
+    overflow-y: auto;
+}
+
+/*Let's style our Modal content*/
+.modal {
+    position: absolute;
+    top: 100px;
+    width: 420px;
+    background-color: rgb(201 193 243);
+    box-shadow: 0px 3px 9px 2px rgb(0 0 0 / 42%);
+    z-index: 2;
+    padding: 15px 20px;
+    border-radius: 15px;
+    opacity: 0;
+    transform: scale(0.1);
+    box-sizing: border-box;
+}
+
+.close {
+    float: right;
+    width: 30px;
+    padding: 1px;
+    padding-bottom: 5px;
+    border-radius: 25px;
+    background-color: rgb(33 23 80 / 90%);
+    color:white;
+    text-align: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
+    margin-top: 7px;
+}
+.close:hover {
+    background-color: rgb(89 80 133);
+}
+.close:active {
+    transform: scale(0.8);
+}
+
+.modal p {
+    font-size: 1.4rem;
+}
+.modal-title {
+    border-bottom: 1px solid rgb(160 155 185 / 90%);
+    padding-bottom: 10px;
+}
+.endQuizBtn, .submitQuiz {
+    color: rgb(33 23 80 / 78%);
+    background-color: rgba(0, 0, 0, 0);
+}
+.endQuizBtn, .closeModalBtn, .submitQuiz {
+    width: 100px;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+.endQuizBtn:hover, .closeModalBtn:hover, .submitQuiz:hover {
+    background-color: rgb(122 111 174 / 22%);
+}
+
+/*Let's use this classes as the animation to Open 
+//or Close our Modal*/
+.fadeIn {
+    opacity: 1;
+    transition: 0.6s;
+}
+.scaleUp-fadeIn {
+    opacity: 1;
+    transition: 0.3s;
+    transform: scale(1);
+}
+.fadeOut {
+    opacity: 0;
+}
+.scaleDown-fadeOut {
+    opacity: 1;
+    transition: 0.3s;
+    transform: scale(0.1);
+}
+
+/*Let's create our button arrows*/
+.arrow {
+    border-top: 3px solid rgb(33 23 80 / 90%);
+    border-right: 3px solid rgb(33 23 80 / 90%);
+    width: 7px;
+    height: 7px;
+    display: inline-block;
+    margin-bottom: 1px;
+}
+.arrow-right {
+    transform: rotate(44deg);
+}
+.arrow-left {
+    transform: rotate(225deg);
+}
+
+
+
+/*Hide our home page, since we are working 
+on the quiz result page
+.home {
+    display: none;
+}*/
